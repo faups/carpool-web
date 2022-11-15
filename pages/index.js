@@ -1,10 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-// import firebase from '../pages/_app.js'
 
+import styles from '../styles/Home.module.css'
+import {db,initFirebase,querySnapshot} from '../firebase/initFirebase'
+import Image from 'next/image'
+
+initFirebase()
 export default function Home() {
   return (
+
+    
     <div className={styles.container}>
       <Head>
         <title>Carpool web</title>
@@ -21,7 +25,7 @@ export default function Home() {
         </h1>  
         {/* <Image src ="/carpool.jpg" width= {128} height = {65}/>    */}
         <div className="container">
-        <Image src ="/art.jpeg" width= {100} height = {100}/>
+        <Image src ="/art.jpeg" alt="" width= {100} height = {100}/>
         <h1>Art Wing &rarr;</h1>
         <style jsx>{`
         .container {
@@ -34,20 +38,22 @@ export default function Home() {
           border-radius: 10px;
           display: inline-block;
         }
-
        
       `}</style>
       <table border="2" width="100%">
     
     <tbody>
       <tr>
-        <th scope="row">ID</th>
+        <th scope="row">
+          ID
+          </th>
+
       </tr>
     </tbody>
     </table>
         </div>
         <div className="container2">
-        <Image src ="/playground.webp" width= {100} height = {100}/>
+        <Image src ="/playground.webp" alt="" width= {100} height = {100}/>
         <h1>Playground &rarr;</h1>
         
         <style jsx>{`
@@ -60,7 +66,6 @@ export default function Home() {
           padding: 5px 10px 10px 10px;
           border-radius: 10px;
           display: inline-block;
-
         }
        
       `}</style>
@@ -84,7 +89,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
           </span>
         </a>
       </footer>
