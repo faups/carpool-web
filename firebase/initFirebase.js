@@ -1,14 +1,8 @@
-import * as firebase from "firebase/app";
-import 'firebase/firestore'
-import   'firebase/auth'
-import   'firebase/storage'
-import   'firebase/analytics'
-import   'firebase/performance'
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "@firebase/firestore";
 
-const clientCredentials = {
-    apiKey: "AIzaSyA37f8BDFALhLdLDPYasUpgSsop0-UyV8Q",
+const firebaseConfig = {
+  apiKey: "AIzaSyA37f8BDFALhLdLDPYasUpgSsop0-UyV8Q",
   authDomain: "carpool-fullstack.firebaseapp.com",
   projectId: "carpool-fullstack",
   storageBucket: "carpool-fullstack.appspot.com",
@@ -17,20 +11,7 @@ const clientCredentials = {
   measurementId: "G-B6KW4JECHV"
 };
 
- function initFirebase() {
-    if (typeof window !== undefined) {
-        initializeApp(clientCredentials);
-        console.log("Firebase has been init successfully");
-    }
-}
-const app = initializeApp(clientCredentials);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
 
-const db = getFirestore(app);
-const querySnapshot = getDocs(collection(db, "users")).then((result) => {
-    result.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
-  });
-
-
-export { initFirebase, db , querySnapshot};
+export const db = getFirestore(app);
