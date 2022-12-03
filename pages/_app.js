@@ -19,7 +19,7 @@ function App() {
         const data = await getDocs(usersCollectionRef);
         setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
-  
+ 
       getUsers();
     }, []);
     return(
@@ -34,7 +34,7 @@ function App() {
       {/* <main className={styles.main}> */}
       <main className="div">
         <h1 className={styles.nav} >
-        TCA Carpool Overhaul
+         TCA Carpool Overhaul
         
         </h1>  
       <div className="container">
@@ -57,7 +57,9 @@ function App() {
         return (
           <div>            
             {" "}           
+            {user.pickupLocation === "ArtWing" && user.isCheckedIn===true &&      
             <h1>ID: {user.id}</h1>
+            }
             </div>
         );
          } )};
@@ -83,8 +85,10 @@ function App() {
         { users.map((user) => {
         return (
           <div>            
-            {" "}           
+            {" "} 
+            {user.pickupLocation === "Playground" && user.isCheckedIn===true &&      
             <h1>ID: {user.id}</h1>
+            }
             </div>
         );
          } )};
