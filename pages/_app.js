@@ -57,7 +57,9 @@ function App() {
         return (
           <div>            
             {" "}           
+            {user.pickupLocation === "ArtWing" &&       
             <h1>ID: {user.id}</h1>
+            }
             </div>
         );
          } )};
@@ -83,8 +85,10 @@ function App() {
         { users.map((user) => {
         return (
           <div>            
-            {" "}           
+            {" "} 
+            {user.pickupLocation === "Playground" &&       
             <h1>ID: {user.id}</h1>
+            }
             </div>
         );
          } )};
