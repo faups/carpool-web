@@ -4,17 +4,19 @@ import styles from '../styles/Home.module.css'
 import { db } from "../firebase/initFirebase";
 import {
   collection,
-  getDocs
+  getDocs,
+  onSnapshot,
+  
 } from "firebase/firestore";
 import React from "react";
 import Head from 'next/head'
 
 
 function App() {
-
+  
     const [users, setUsers] = useState([]);
     const usersCollectionRef = collection(db, "users");
-    useEffect(() => {
+   useEffect(() => {
      onSnapshot(usersCollectionRef,(snapshot)=>{
       const getUsers = async () => {
         const data = await getDocs(usersCollectionRef);
@@ -24,9 +26,8 @@ function App() {
       getUsers();
     });
     }, []);
- 
-      getUsers();
-    }, []);
+
+
     return(
       <React.StrictMode>
        <Head>
@@ -61,7 +62,7 @@ function App() {
         { users.map((user) => {
         return (
           <div>            
-            {" "}           
+                      
             {user.pickupLocation === "ArtWing" && user.isCheckedIn===true &&      
             <h1>ID: {user.id}</h1>
             }
@@ -90,7 +91,6 @@ function App() {
         { users.map((user) => {
         return (
           <div>            
-            {" "} 
             {user.pickupLocation === "Playground" && user.isCheckedIn===true &&      
             <h1>ID: {user.id}</h1>
             }
