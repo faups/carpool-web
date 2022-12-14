@@ -48,11 +48,14 @@ function App() {
         <h1>Art Wing &rarr;</h1>
         <style jsx>{`
         .container {
+          position:absolute;
+          top:100px;
+          left:20px;
+          height: 200vh;
           width: 45%;
           background-color: lightgrey;
           font-family: arial;
           margin-left: 0px;
-          height: 800px;
           padding: 5px 10px 10px 10px;
           border-radius: 10px;
           display: inline-block;
@@ -68,7 +71,7 @@ function App() {
             }
             </div>
         );
-         } )};
+         } )}
   
       </div>
       <div className="container2">
@@ -77,11 +80,14 @@ function App() {
         
         <style jsx>{`
         .container2 {
+          position:absolute;
+          top:100px;
+          right:20px;
+          height: 200vh;
           width: 45%;
           background-color: lightgrey;
           font-family: arial;
           margin-left: 30px;
-           height: 800px;
           padding: 5px 10px 10px 10px;
           border-radius: 10px;
           display: inline-block;
@@ -96,7 +102,7 @@ function App() {
             }
             </div>
         );
-         } )};
+         } )}
   
       </div>
       </main>
